@@ -38,7 +38,7 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>${ HtmlReportUtils.timeTakenPretty(report.timeTaken()) }</div>
+					<div class='panel-lead'>${ ReportUtils.timeTakenPretty(report.timeTaken()) }</div>
 				</div>
 			</div>
 			 <#if report.systemEnvInfo?size != 0>

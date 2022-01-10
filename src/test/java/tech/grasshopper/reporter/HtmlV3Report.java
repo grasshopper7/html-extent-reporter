@@ -2,6 +2,8 @@ package tech.grasshopper.reporter;
 
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.model.Media;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class HtmlV3Report {
@@ -24,10 +26,15 @@ public class HtmlV3Report {
 				.info("info").assignCategory("Category").assignAuthor("Author").assignDevice("Device")
 				.assignCategory("Category Two").assignAuthor("Author Two").assignDevice("Device Two");
 
-		extent.createTest("Test Heirarchy").pass("passing test").assignCategory("Category Three")
-				.assignAuthor("Author Three").assignDevice("Device Three")
-				.createNode("Child Test", "Child Test description").pass("child pass test")
-				.createNode("Grand Child Test").pass("grand child pass test");
+		extent.createTest("Test Heirarchy").addScreenCaptureFromPath("images/dashboard_bdd.png")
+				.addScreenCaptureFromPath("images/dashboard_default.png").pass("passing test")
+				.assignCategory("Category Three").assignAuthor("Author Three").assignDevice("Device Three")
+				.pass("Hello", MediaEntityBuilder.createScreenCaptureFromPath("images/dashboard_bdd.png").build())
+				.createNode("Child Test", "Child Test description")
+				.addScreenCaptureFromPath("images/dashboard_default.png").pass("child pass test")
+				.pass("Hello Child", MediaEntityBuilder.createScreenCaptureFromPath("images/dashboard_bdd.png").build())
+				.createNode("Grand Child Test").pass("grand child pass test").pass("Hello Grand Child",
+						MediaEntityBuilder.createScreenCaptureFromPath("images/dashboard_bdd.png").build());
 
 		Exception ex = null;
 		try {

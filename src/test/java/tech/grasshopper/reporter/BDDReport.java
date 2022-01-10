@@ -25,6 +25,7 @@ public class BDDReport {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		ExtentReports extent = new ExtentReports();
+		extent.setMediaResolverPath(new String[] { "images" });
 
 		ExtentHtmlReporter html = new ExtentHtmlReporter("reports/htmlV3BDD.html");
 		extent.attachReporter(html);

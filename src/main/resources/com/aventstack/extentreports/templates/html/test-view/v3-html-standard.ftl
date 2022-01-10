@@ -52,7 +52,9 @@
 					<#else>
 						${log.details}
 					</#if>
-					<#--<#if LogService.logHasScreenCapture(log)>${log.screenCaptureContext.last.source}</#if>-->
+					<#if log.hasMedia()==true>
+						${ ReportUtils.getMediaSource(log.media)}
+					</#if>
 				</td>
 			</tr>
 			</#list>
@@ -70,7 +72,7 @@
 			<div class='node-name'>${ node.name }</div>
 			<span class='node-time'>${ node.startTime?datetime?string["${timeStampFormat}"] }</span>
 			&middot; <span class='node-duration'>${ node.timeTakenPretty() }</span>
-			<span class='test-status right ${ node.status }'>${ node.status }</span>
+			<span class='test-status right ${ node.status?lower_case }'>${ node.status }</span>
 			<#if node.hasCategory()>
 			<div class='category-list'>
 				<#list node.categorySet as category>
@@ -111,8 +113,7 @@
 					<tbody>
 						<#list node.logs as log>
 						<tr class='log' status='${ log.status }'>
-						<#-- <i class='material-icons'>${ MaterialIcon.getIcon(log.status) }</i> -->
-							<td class='status ${ log.status }' title='${ log.status }' alt='${ log.status }'>${ log.status }</td>
+							<td class='status ${ log.status?lower_case }' title='${ log.status }' alt='${ log.status }'><i class='material-icons'>${ MaterialIcon.getIcon(log.status) }</i></td>
 							<td class='timestamp'>${ log.timestamp?time?string }</td>
 							<#--<#if log.stepName??>
 							<td class='step-name'>${ log.stepName }</td>
@@ -123,19 +124,21 @@
 								<#else>
 									${log.details}
 								</#if>
-								<#-- <#if LogService.logHasScreenCapture(log)>${log.screenCaptureContext.last.source}</#if> -->
+								<#if log.hasMedia()==true>
+									${ ReportUtils.getMediaSource(log.media)}
+								</#if>
 							</td>
 						</tr>
 						</#list>
 					</tbody>
 				</table>
-				<#-- <#if TestService.testHasScreenCapture(node)>
-				<ul class='screenshots'>
-					<#list node.screenCaptureContext.all as sc>
-					<li>${ sc.source }</li>
-					</#list>
-				</ul>
-				</#if> -->
+				<#if node.hasScreenCapture()==true>
+					<ul class='screenshots'>
+						<#list node.media as sc>
+							<li>${ ReportUtils.getMediaSource(sc)}</li>
+						</#list>
+					</ul>
+				</#if>
 			</div>
 			</#if>
 		</div>

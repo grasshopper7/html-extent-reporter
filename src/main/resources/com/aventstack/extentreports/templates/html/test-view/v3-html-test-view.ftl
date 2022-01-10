@@ -81,18 +81,25 @@
 				<#if test.hasChildren()==true>
 				<#assign hasChildrenClass = 'has-leaf'>
 				</#if>
-				<li class='test displayed active ${ hasChildrenClass } ${ test.status }' status='${ test.status }' bdd='${ report.isBDD()?string }' test-id='${ test.getId() }'>
+				<li class='test displayed active ${ hasChildrenClass } ${ test.status?lower_case }' status='${ test.status?lower_case }' bdd='${ report.isBDD()?string }' test-id='${ test.getId() }'>
 					<div class='test-heading'>
 						<span class='test-name'>${ test.name }</span>
 						<span class='test-time'>${ test.startTime?datetime?string["${timeStampFormat}"] }</span>
-						<span class='test-status right ${ test.status }'>${ test.status }</span>
+						<span class='test-status right ${ test.status?lower_case }'>${ test.status }</span>
 					</div>
 					<div class='test-content hide'>
-					<#if report.isBDD()==true>
-						<#include 'v3-html-bdd.ftl'>							
-					<#else>
-						<#include 'v3-html-standard.ftl'>
-					</#if>
+						<#if report.isBDD()==true>
+							<#include 'v3-html-bdd.ftl'>							
+						<#else>
+							<#include 'v3-html-standard.ftl'>
+						</#if>
+						<#if test.hasScreenCapture()==true>
+							<ul class='screenshots'>
+								<#list test.media as sc>
+								<li>${ ReportUtils.getMediaSource(sc)}</li>
+								</#list>
+							</ul>
+						</#if>
 					</div>
 				</li>
 				</#list>

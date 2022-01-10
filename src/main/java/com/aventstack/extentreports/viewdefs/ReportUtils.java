@@ -8,9 +8,11 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import com.aventstack.extentreports.gherkin.model.IGherkinFormatterModel;
+import com.aventstack.extentreports.model.Media;
+import com.aventstack.extentreports.model.ScreenCapture;
 import com.aventstack.extentreports.model.Test;
 
-public class HtmlReportUtils {
+public class ReportUtils {
 
 	public String getBehaviorDrivenTypeName(Class<? extends IGherkinFormatterModel> bddType)
 			throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException,
@@ -31,5 +33,14 @@ public class HtmlReportUtils {
 		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		String formatted = formatter.format(date);
 		return formatted;
+	}
+
+	public String getMediaSource(Media media) {
+		if (((ScreenCapture) media).getBase64() != null && ((ScreenCapture) media).getBase64().startsWith("data:")) {
+			return "<a href='" + ((ScreenCapture) media).getBase64()
+					+ "' data-featherlight='image'><span class='label grey badge white-text text-white'>base64-img</span></a>";
+		}
+		return "<img class='r-img' onerror='this.style.display=\"none\"' data-featherlight='" + media.getPath()
+				+ "' src='" + media.getPath() + "'>";
 	}
 }

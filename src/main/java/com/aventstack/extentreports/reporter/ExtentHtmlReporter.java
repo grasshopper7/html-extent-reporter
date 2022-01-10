@@ -15,7 +15,7 @@ import com.aventstack.extentreports.reporter.configuration.EntityFilters;
 import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterConfig;
 import com.aventstack.extentreports.reporter.configuration.ViewConfigurer;
 import com.aventstack.extentreports.reporter.configuration.ViewsConfigurable;
-import com.aventstack.extentreports.viewdefs.HtmlReportUtils;
+import com.aventstack.extentreports.viewdefs.ReportUtils;
 import com.aventstack.extentreports.viewdefs.Icon;
 import com.aventstack.extentreports.viewdefs.MaterialIcon;
 import com.aventstack.extentreports.viewdefs.TWBSColor;
@@ -143,13 +143,13 @@ public class ExtentHtmlReporter extends AbstractFileReporter implements ReportOb
 			getTemplateModel().put("this", this);
 			getTemplateModel().put("viewOrder", viewConfigurer.viewOrder().getViewOrder());
 			getTemplateModel().put("report", report);
-			
+
 			// Added for html report. Check which are needed.
 			getTemplateModel().put("MaterialIcon", new MaterialIcon());
 			getTemplateModel().put("Icon", new Icon());
 			getTemplateModel().put("TWBSColor", new TWBSColor());
-			getTemplateModel().put("HtmlReportUtils", new HtmlReportUtils());
-			
+			getTemplateModel().put("ReportUtils", new ReportUtils());
+
 			createFreemarkerConfig(TEMPLATE_LOCATION, ENCODING);
 			final String filePath = getFileNameAsExt(FILE_NAME, new String[] { ".html", ".htm" });
 			final Template template = getFreemarkerConfig().getTemplate(SPA_TEMPLATE_NAME);
