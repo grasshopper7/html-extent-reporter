@@ -67,11 +67,12 @@
 	<#macro recurse_nodes nodeList>
 	<#list nodeList as node>
 	<#assign leaf=(node.hasChildren())?then('','leaf')>
-	<li class='node level-${ node.level } ${ leaf } ${ node.status }' status='${ node.status }' test-id='${ node.getId() }'>
+	<li class='node level-${ node.level } ${ leaf } ${ node.status?lower_case }' status='${ node.status }' test-id='${ node.getId() }'>
 		<div class='collapsible-header'>
 			<div class='node-name'>${ node.name }</div>
-			<span class='node-time'>${ node.startTime?datetime?string["${timeStampFormat}"] }</span>
-			&middot; <span class='node-duration'>${ node.timeTakenPretty() }</span>
+			<span class='node-time label start-time'>${ node.startTime?datetime?string["${timeStampFormat}"] }</span>
+			<span class='node-time label end-time'>${ node.endTime?datetime?string["${timeStampFormat}"] }</span>
+			<span class='node-duration label time-taken grey lighten-1 white-text'>${ node.timeTakenPretty() }</span>
 			<span class='test-status right ${ node.status?lower_case }'>${ node.status }</span>
 			<#if node.hasCategory()>
 			<div class='category-list'>
@@ -104,9 +105,6 @@
 						<tr>
 							<th>Status</th>
 							<th>Timestamp</th>
-							<#-- <#if node.getLogContext().get(0).stepName??>
-							<th>StepName</th>
-							</#if> -->
 							<th>Details</th>
 						</tr>
 					</thead>
@@ -115,9 +113,6 @@
 						<tr class='log' status='${ log.status }'>
 							<td class='status ${ log.status?lower_case }' title='${ log.status }' alt='${ log.status }'><i class='material-icons'>${ MaterialIcon.getIcon(log.status) }</i></td>
 							<td class='timestamp'>${ log.timestamp?time?string }</td>
-							<#--<#if log.stepName??>
-							<td class='step-name'>${ log.stepName }</td>
-							</#if>-->
 							<td class='step-details'>
 								<#if log.exception??>
 									<textarea disabled class="code-block">${log.exception.stackTrace}</textarea>

@@ -19,6 +19,7 @@
 	<span class='duration right label'>${node.timeTakenPretty()}</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status ${node.status?lower_case}' title='${node.status}'><i class='material-icons'>${MaterialIcon.getIcon(node.status)}</i></span> ${ReportUtils.getBehaviorDrivenTypeName(node)}: ${node.name}</div>
+		<#-- Not Needed Check -->
 		<#-- <#if TestService.testHasScreenCapture(node)>
 		<ul class='screenshots right'>
 			<#list node.screenCaptureContext.all as sc>
@@ -39,46 +40,38 @@
 		<#list node.children as child>
 		<li test-id='${child.getId()}' class='node ${ReportUtils.getBehaviorDrivenTypeName(child)?lower_case} ${child.status}' status='${child.status}'>
 			<div class="step-name" title="(${child.description!''})"><span class='status ${child.status?lower_case}' title='${child.status}'><i class='material-icons'>${MaterialIcon.getIcon(child.status)}</i></span>${child.name}</div>
-			<#-- <#if TestService.testHasScreenCapture(child)>
-			<ul class='screenshots right'>
-				<#list child.screenCaptureContext.all as sc>
-				<#if sc.path??>
-				<li><a data-featherlight="image" href="${sc.path}"><i class='material-icons'>panorama</i></a></li>
-				<#elseif sc.isBase64()>
-				<li><a data-featherlight="image" href="${sc.base64String}"><i class='material-icons'>panorama</i></a></li>
-				</#if>
-				</#list>
-			</ul>
-			</#if> -->
+
 			<#list child.logs as log>
-			<#if log.exception??>
-			<textarea disabled class="code-block">${log.exception.stackTrace}</textarea>
-			<#else>
-			<div class="node-step">${log.details}</div>
-			</#if>
+				<#if log.exception??>
+					<textarea disabled class="code-block">${log.exception.stackTrace}</textarea>
+				</#if>
+				<#if log.details?? && log.details?has_content>
+					<div class="node-step">${log.details}</div>
+				</#if>
+				<#if log.hasMedia()==true>
+					<div class='screenshots'>
+						${ ReportUtils.getMediaSource(log.media)}
+					</div>
+				</#if>
 			</#list>
 			<#if child.hasChildren()>
 			<ul class='gc steps'>
 				<#list child.children as gc>
 				<li test-id='${gc.getId()}' class='gc ${ReportUtils.getBehaviorDrivenTypeName(gc)?lower_case} ${gc.status}' status='${gc.status}'>
 					<h6 class="step-name" title="${gc.description!''}"><span class='status ${gc.status?lower_case}' title='${gc.status}'><i class='material-icons'>${MaterialIcon.getIcon(gc.status)}</i></span>${gc.name}</h6>
-					<#-- <#if TestService.testHasScreenCapture(gc)>
-					<ul class='screenshots right'>
-						<#list gc.screenCaptureContext.all as sc>
-						<#if sc.path??>
-						<li><a data-featherlight="image" href="${sc.path}"><i class='material-icons'>panorama</i></a></li>
-						<#elseif sc.isBase64>
-						<li><a data-featherlight="image" href="${sc.base64String}"><i class='material-icons'>panorama</i></a></li>
-						</#if>
-						</#list>
-					</ul>
-					</#if> -->
+
 					<#list gc.logs as log>
-					<#if log.exception??>
-					<textarea disabled class="code-block">${log.exception.stackTrace}</textarea>
-					<#else>
-					<div class="node-step">${log.details}</div>
-					</#if>
+						<#if log.exception??>
+							<textarea disabled class="code-block">${log.exception.stackTrace}</textarea>
+						</#if>
+						<#if log.details?? && log.details?has_content>
+							<div class="node-step">${log.details}</div>
+						</#if>
+						<#if log.hasMedia()==true>
+							<div class='screenshots'>
+								${ ReportUtils.getMediaSource(log.media)}
+							</div>
+						</#if>
 					</#list>
 				</li>
 				</#list>

@@ -40,7 +40,7 @@ public class ReportUtils {
 			return "<a href='" + ((ScreenCapture) media).getBase64()
 					+ "' data-featherlight='image'><span class='label grey badge white-text text-white'>base64-img</span></a>";
 		}
-		return "<img class='r-img' onerror='this.style.display=\"none\"' data-featherlight='" + media.getPath()
+		return "<img width='80' height='40' onerror='this.style.display=\"none\"' data-featherlight='" + media.getPath()
 				+ "' src='" + media.getPath() + "'>";
 	}
 }

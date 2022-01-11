@@ -25,7 +25,7 @@ public class BDDReport {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		ExtentReports extent = new ExtentReports();
-		extent.setMediaResolverPath(new String[] { "images" });
+		// extent.setMediaResolverPath(new String[] { "images" });
 
 		ExtentHtmlReporter html = new ExtentHtmlReporter("reports/htmlV3BDD.html");
 		extent.attachReporter(html);
@@ -34,8 +34,11 @@ public class BDDReport {
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 
-		ExtentSparkReporter spark = new ExtentSparkReporter("reports/BDDSparkReport.html");
-		extent.attachReporter(spark);
+		/*
+		 * ExtentSparkReporter spark = new
+		 * ExtentSparkReporter("reports/BDDSparkReport.html");
+		 * extent.attachReporter(spark);
+		 */
 
 		extent.setSystemInfo("SYS1", "system info one");
 		extent.setSystemInfo("SYS2", "system info two");
@@ -66,13 +69,28 @@ public class BDDReport {
 
 		ExtentTest mediaLogs = featureLogs.createNode(Scenario.class, "Media Logs");
 
-		mediaLogs.createNode(Given.class, "Single Media Log Step").log(Status.PASS,
-				MediaEntityBuilder.createScreenCaptureFromPath("dashboard_bdd.png").build());
+		mediaLogs.createNode(Given.class, "Single Media Log Step")
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/dashboard_bdd.png").build())
+				.log(Status.INFO, "Hello");
 
 		mediaLogs.createNode(Given.class, "Multiple Media Log Step")
-				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("logo.png").build())
-				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("test_details_bdd.png").build())
-				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("test_logs_bdd.png").build());
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/logo.png").build())
+				.log(Status.PASS, "Hello",
+						MediaEntityBuilder.createScreenCaptureFromPath("images/test_details_bdd.png").build())
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/test_logs_bdd.png").build());
+
+		ExtentTest mediaSOLogs = featureLogs.createNode(ScenarioOutline.class, "Media SO Logs");
+
+		mediaSOLogs.createNode(Scenario.class, "Single Media Log Scenario")
+				.createNode(Given.class, "Single Media Log Step")
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/dashboard_bdd.png").build());
+
+		mediaSOLogs.createNode(Scenario.class, "Multiple Media Log Scenario")
+				.createNode(Given.class, "Multiple Media Log Step")
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/logo.png").build())
+				.log(Status.PASS, "Hello",
+						MediaEntityBuilder.createScreenCaptureFromPath("images/test_details_bdd.png").build())
+				.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromPath("images/test_logs_bdd.png").build());
 
 		ExtentTest exceptionLogs = featureLogs.createNode(Scenario.class, "Exception Logs");
 		Exception ex = null;
