@@ -16,6 +16,7 @@ public class HtmlV3Report {
 		extent.attachReporter(html);
 		html.config().setDocumentTitle("MOUNISH");
 		html.config().setReportName("GRASSHOPPER");
+		html.config().enableOfflineMode(true);
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 

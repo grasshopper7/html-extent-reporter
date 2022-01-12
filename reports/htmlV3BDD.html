@@ -10,9 +10,8 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
 	
-        <link href='HTTP://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
-        <link href="HTTP://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href='HTTP://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+        <link rel="stylesheet" href="html/material-icons.css">
+        <link rel="stylesheet" href="html/v3html-style.css">
 	
 	<title>MOUNISH</title>
 
@@ -33,11 +32,11 @@
 		</div>
 <nav>
 	<div class="nav-wrapper">
-		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
-		<!-- slideout menu -->
+        <a href="#" class="brand-logo black"><img src="html/logo.png"></a>
+        		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
 			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person_outline</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
@@ -50,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Jan 11, 2022 04:24:13 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Jan 12, 2022 10:07:49 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -78,8 +77,8 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>complex</a></li>
 					<li><a href='#'>simple</a></li>
+					<li><a href='#'>complex</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -190,7 +189,7 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Feature</span>
-						<span class='test-time'>Jan 11, 2022 04:24:13 PM</span>
+						<span class='test-time'>Jan 12, 2022 10:07:50 PM</span>
 						<span class='test-status right pass'>Pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -205,7 +204,7 @@
 	<div class='category-list'>
 		<span class='category label'>simple</span>
 	</div>
-	<span class='duration right label'>00:00:00:015</span>
+	<span class='duration right label'>00:00:00:016</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Scenario</div>
 		scenario description
@@ -226,7 +225,7 @@
 	</ul>
 </div>
 <div class='scenario outline node' test-id='6' status='Pass'>
-	<span class='duration right label'>00:00:00:002</span>
+	<span class='duration right label'>00:00:00:000</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Scenario Outline</div>
 	</div>
@@ -256,7 +255,7 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='11'>
 					<div class='test-heading'>
 						<span class='test-name'>Feature Logs</span>
-						<span class='test-time'>Jan 11, 2022 04:24:14 PM</span>
+						<span class='test-time'>Jan 12, 2022 10:07:50 PM</span>
 						<span class='test-status right fail'>Fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -271,7 +270,7 @@
 	<div class='category-list'>
 		<span class='category label'>complex</span>
 	</div>
-	<span class='duration right label'>00:00:00:001</span>
+	<span class='duration right label'>00:00:00:000</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Scenario Text Logs</div>
 	</div>
@@ -294,7 +293,7 @@
 	<div class='category-list'>
 		<span class='category label'>complex</span>
 	</div>
-	<span class='duration right label'>00:00:00:004</span>
+	<span class='duration right label'>00:00:00:000</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Media Logs</div>
 	</div>
@@ -324,7 +323,7 @@
 	</ul>
 </div>
 <div class='scenario outline node' test-id='18' status='Pass'>
-	<span class='duration right label'>00:00:00:001</span>
+	<span class='duration right label'>00:00:00:000</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Media SO Logs</div>
 	</div>
@@ -368,7 +367,7 @@
 	<div class='category-list'>
 		<span class='category label'>complex</span>
 	</div>
-	<span class='duration right label'>00:00:00:003</span>
+	<span class='duration right label'>00:00:00:000</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span> Scenario: Exception Logs</div>
 	</div>
@@ -377,7 +376,7 @@
 			<div class="step-name" title="()"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span>Exception Log Step</div>
 
 					<textarea disabled class="code-block">java.lang.ArithmeticException: / by zero
-	at tech.grasshopper.reporter.BDDReport.main(BDDReport.java:98)
+	at tech.grasshopper.reporter.BDDReport.main(BDDReport.java:97)
 </textarea>
 		</li>
 	</ul>
@@ -386,7 +385,7 @@
 	<div class='category-list'>
 		<span class='category label'>complex</span>
 	</div>
-	<span class='duration right label'>00:00:00:215</span>
+	<span class='duration right label'>00:00:00:219</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span> Scenario: Markup Logs</div>
 	</div>
@@ -456,39 +455,6 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>complex</span>
-						<span class='category-status right'>
-						<span class='label fail'>1</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							
-							<span status="fail" class='label red lighten-1 white-text'>Failed: 1</span>
-							
-						</div>
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Jan 11, 2022 04:24:14 PM</td>
-										<td class='linked' test-id='11'>Feature Logs</td>
-										<td><span class='test-status Fail'>Fail</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
 						<span class='category-name'>simple</span>
 						<span class='category-status right'>
 						<span class='label pass'>1</span>
@@ -511,9 +477,42 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jan 11, 2022 04:24:13 PM</td>
+										<td>Jan 12, 2022 10:07:50 PM</td>
 										<td class='linked' test-id='1'>Feature</td>
 										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>complex</span>
+						<span class='category-status right'>
+						<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 12, 2022 10:07:50 PM</td>
+										<td class='linked' test-id='11'>Feature Logs</td>
+										<td><span class='test-status Fail'>Fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -564,11 +563,11 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jan 11, 2022 04:24:14 PM</td>
+										<td>Jan 12, 2022 10:07:50 PM</td>
 										<td class='linked' test-id='24'>Exception Log Step</td>
 										<td>
 											<textarea disabled class="code-block">java.lang.ArithmeticException: / by zero
-	at tech.grasshopper.reporter.BDDReport.main(BDDReport.java:98)
+	at tech.grasshopper.reporter.BDDReport.main(BDDReport.java:97)
 </textarea>
 										</td>
 									</tr>
@@ -628,7 +627,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jan 11, 2022 04:24:13 PM</td>
+										<td>Jan 12, 2022 10:07:50 PM</td>
 										<td class='linked' test-id='1'>Feature</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
@@ -661,7 +660,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jan 11, 2022 04:24:14 PM</td>
+										<td>Jan 12, 2022 10:07:50 PM</td>
 										<td class='linked' test-id='11'>Feature Logs</td>
 										<td><span class='test-status Fail'>Fail</span></td>
 									</tr>
@@ -705,19 +704,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jan 11, 2022 04:24:13 PM</div>
+					<div class='panel-lead'>Jan 12, 2022 10:07:49 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jan 11, 2022 04:24:14 PM</div>
+			 		<div class='panel-lead'>Jan 12, 2022 10:07:50 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 00 00.817</div>
+					<div class='panel-lead'>00 00 00.906</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -753,21 +752,21 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>complex</td>
-							<td>0</td>
-							<td>1</td>
-							<td>0</td>
-							<td>
-									0%
-							</td>
-						</tr>
-						<tr>
 							<td>simple</td>
 							<td>1</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
 									100%
+							</td>
+						</tr>
+						<tr>
+							<td>complex</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
 							</td>
 						</tr>
 					</table>
@@ -818,11 +817,11 @@
 		
 		<script>
 			var timeline = {
-			        "Feature":0.107,"Feature Logs":0.228
+			        "Feature":0.031,"Feature Logs":0.219
 			};
 		</script>
 		
-		  <script src='HTTP://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js' type='text/javascript'></script>
+		  <script src='html/v3html-script.js' type='text/javascript'></script>
 		
 		
 		<script type='text/javascript'>

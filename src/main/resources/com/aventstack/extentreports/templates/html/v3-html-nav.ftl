@@ -1,6 +1,8 @@
 <nav>
 	<div class="nav-wrapper">
-		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+        <#if offline=='true'><a href="#" class="brand-logo black"><img src="html/logo.png"></a>
+        <#else><a href="#!" class="brand-logo black"><img src="https://${cdnURI}${iconcommit}/commons/img/logo.png"></a>
+        </#if>
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>

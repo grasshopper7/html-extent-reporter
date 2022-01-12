@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
 /**
- * Defines configuration settings for the Spark reporter
+ * Defines configuration settings for the Html reporter
  */
 @Getter
 @Setter
@@ -74,30 +74,32 @@ public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 		}
 
 		private static String[] getJSFiles() {
-			final String commonsPath = COMMONS + JS;
+			// final String commonsPath = COMMONS + JS;
 			final String reporterPath = REPORTER_NAME + SEP + JS;
-			final String[] files = { reporterPath + "spark-script.js", commonsPath + "jsontree.js" };
+			final String[] files = { reporterPath + "v3html-script.js", reporterPath + "jsontree.js",
+					reporterPath + "attr.js", reporterPath + "dashboard.js" };
 			return files;
 		}
 
 		private static String[] getCSSFiles() {
 			final String reporterPath = REPORTER_NAME + SEP + CSS;
-			final String[] files = { reporterPath + "spark-style.css" };
+			final String[] files = { reporterPath + "v3html-style.css" };
 			return files;
 		}
 
 		private static String[] getIconFiles() {
-			final String path = COMMONS + CSS + ICONS;
-			final String iconDirPath = "fontawesome" + SEP;
-			final String[] files = { path + "font-awesome.min.css", path + iconDirPath + "fontawesome-webfont.eot",
-					path + iconDirPath + "fontawesome-webfont.svg", path + iconDirPath + "fontawesome-webfont.ttf",
-					path + iconDirPath + "fontawesome-webfont.woff", path + iconDirPath + "fontawesome-webfont.woff2",
-					path + iconDirPath + "FontAwesome.otf" };
+			final String path = REPORTER_NAME + SEP + CSS + ICONS;
+			final String iconDirPath = "material" + SEP;
+			final String[] files = { path + "material-icons.css", path + iconDirPath + "MaterialIcons-Regular.eot",
+					path + iconDirPath + "MaterialIcons-Regular.svg", path + iconDirPath + "MaterialIcons-Regular.ttf",
+					path + iconDirPath + "MaterialIcons-Regular.woff",
+					path + iconDirPath + "MaterialIcons-Regular.woff2",
+					path + iconDirPath + "MaterialIcons-Regular.ijmap" };
 			return files;
 		}
 
 		private static String[] getImgFiles() {
-			final String path = COMMONS + IMG;
+			final String path = REPORTER_NAME + SEP + IMG;
 			final String[] files = { path + "logo.png" };
 			return files;
 		}

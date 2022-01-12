@@ -6,12 +6,12 @@
 	<meta id="timeStampFormat" name="timeStampFormat" content='${timeStampFormat}'/>
 	
 	<#if offline=="true">
-        <link rel="apple-touch-icon" href="${config.getConfig("offlineDirectory")}material-icons.css">
-        <link rel="stylesheet" href="${config.getConfig("offlineDirectory")}v3html-style.css">
+        <link rel="stylesheet" href="html/material-icons.css">
+        <link rel="stylesheet" href="html/v3html-style.css">
     <#else>
         <link href='${config.protocol}://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
         <link href="${config.protocol}://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href='${config.protocol}://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+        <link href='${config.protocol}://${cdnURI}${csscommit}/v3html/css/extent.css' type='text/css' rel='stylesheet' />
     </#if>
 	
 	<title>${ config.documentTitle }</title>

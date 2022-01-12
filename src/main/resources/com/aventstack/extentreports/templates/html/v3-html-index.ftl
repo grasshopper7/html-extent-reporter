@@ -3,10 +3,11 @@
 <#assign parentCount=report.stats.sumStat(report.stats.parent)>
 <#assign childCount=report.stats.sumStat(report.stats.child)>
 <#assign grandChildCount=report.stats.sumStat(report.stats.grandchild)>
+
 <#assign testViewChartLocation='top'>
 <#assign chartVisibleOnOpen='true'>
 <#assign enableTimeline='true'>
-<#assign offline='false'>
+<#assign offline='true'>
 
 <#--<#assign theme=config.containsConfig('theme')?then(config.getConfig('theme')?lower_case, 'standard')>
 <#assign testViewChartLocation=config.containsConfig('chartLocation')?then(config.getConfig('chartLocation')?lower_case, 'top')>
@@ -14,37 +15,22 @@
 <#assign klovUrl=config.containsConfig('klov-url')?then(config.getConfig('klov-url'), '')>
 <#assign disableToggleActionForPassedNode=config.containsConfig('disableToggleActionForPassedNode')?then(config.getConfig('disableToggleActionForPassedNode'), '')>
 <#assign enableTimeline=config.containsConfig('enableTimeline')?then(config.getConfig('enableTimeline'), 'true')>
-<#assign bddReport=false>
-<#assign bddClass=''>
-<#if report.testList?? && report.testList?size != 0>
-<#assign firstTest=report.testList[0]>
-<#assign bddReport = (TestService.testHasChildren(firstTest) && firstTest.nodeContext.get(0).isBehaviorDrivenType())?then(true, false)>
-</#if>
-<#assign parentViewChartsHeading='Classes' childViewChartsHeading='Tests' grandChildViewChartsHeading='Steps'>
-<#assign parentLabel='class(es)' childLabel='test(s)' grandChildLabel='log(s)'>
-<#if bddReport>
-<#assign parentViewChartsHeading='Features' childViewChartsHeading='Scenarios' grandChildViewChartsHeading='Steps'>
-<#assign parentLabel='feature(s)' childLabel='scenario(s)' grandChildLabel='step(s)'>
-<#assign bddClass='bdd-report'>
-<#else>
-<#if (childCount == 0 || grandChildCount == 0)>
-<#assign parentViewChartsHeading='Tests' childViewChartsHeading='Steps' grandChildViewChartsHeading=''>
-<#assign parentLabel='test(s)' childLabel='step(s)' grandChildLabel=''>
-</#if>
-<#if report.analysisStrategy?string == 'SUITE'>
-<#assign parentViewChartsHeading='Suites' childViewChartsHeading='Tests' grandChildViewChartsHeading='Test Methods'>
-<#assign parentLabel='suite(s)' childLabel='test(s)' grandChildLabel='method(s)'>
-</#if>
-</#if>
-
 <#assign timeStampFormat = config.getConfig('timeStampFormat')>-->
-<#assign resourceCDN=config.resourceCDN cdnURI="cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@" csscommit="ff53917fbbdb5ef820abbbe4d199a6942dc771ff" jscommit="ff53917fbbdb5ef820abbbe4d199a6942dc771ff">
+
+<#assign 
+  resourceCDN=config.resourceCDN
+  cdnURI="cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@" 
+  csscommit="ff53917fbbdb5ef820abbbe4d199a6942dc771ff"
+  jscommit="ff53917fbbdb5ef820abbbe4d199a6942dc771ff" 
+  iconcommit="ff53917fbbdb5ef820abbbe4d199a6942dc771ff">
 <#if resourceCDN=="extentreports">
-    <#assign cdnURI="extentreports.com/resx" csscommit="" jscommit="">
+  <#assign 
+    cdnURI="extentreports.com/resx" 
+    csscommit="" 
+    jscommit="" 
+    iconcommit="">
 </#if>
 
-<#-- Why twice called -->
-<#--<#include "../commons/commons-variables.ftl">-->
 <#assign bddClass=''>
 <#if report.isBDD()>
 	<#assign bddClass='bdd-report'>
@@ -123,7 +109,7 @@
 		</#if>
 		
 		 <#if offline=="true">
-		  <script src='${config.offlineDirectory}v3html-script.js' type='text/javascript'></script>
+		  <script src='html/v3html-script.js' type='text/javascript'></script>
 		<#else>
 		  <script src='${config.protocol}://${cdnURI}${jscommit}/v3html/js/extent.js' type='text/javascript'></script>
 		</#if>

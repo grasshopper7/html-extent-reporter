@@ -31,14 +31,13 @@ public class BDDReport {
 		extent.attachReporter(html);
 		html.config().setDocumentTitle("MOUNISH");
 		html.config().setReportName("GRASSHOPPER");
+		html.config().enableOfflineMode(true);
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 
-		/*
-		 * ExtentSparkReporter spark = new
-		 * ExtentSparkReporter("reports/BDDSparkReport.html");
-		 * extent.attachReporter(spark);
-		 */
+		ExtentSparkReporter spark = new ExtentSparkReporter("reports/BDDSparkReport.html");
+		extent.attachReporter(spark);
+		spark.config().enableOfflineMode(true);
 
 		extent.setSystemInfo("SYS1", "system info one");
 		extent.setSystemInfo("SYS2", "system info two");

@@ -30,7 +30,7 @@ import lombok.Getter;
 @Getter
 public class ExtentHtmlReporter extends AbstractFileReporter implements ReportObserver<ReportEntity>,
 		ReporterConfigurable, ViewsConfigurable<ExtentHtmlReporter>, ReporterFilterable<ExtentHtmlReporter> {
-	private static final Logger logger = Logger.getLogger(ExtentSparkReporter.class.getName());
+	private static final Logger logger = Logger.getLogger(ExtentHtmlReporter.class.getName());
 	private static final String TEMPLATE_LOCATION = "templates/";
 	private static final String ENCODING = "UTF-8";
 	private static final String REPORTER_NAME = "html";
@@ -141,7 +141,6 @@ public class ExtentHtmlReporter extends AbstractFileReporter implements ReportOb
 		report = filterAndGet(value.getReport(), filter.statusFilter().getStatus());
 		try {
 			getTemplateModel().put("this", this);
-			getTemplateModel().put("viewOrder", viewConfigurer.viewOrder().getViewOrder());
 			getTemplateModel().put("report", report);
 
 			// Added for html report. Check which are needed.
