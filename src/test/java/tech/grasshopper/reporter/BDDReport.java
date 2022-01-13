@@ -49,13 +49,16 @@ public class BDDReport {
 		ExtentTest feature = extent.createTest(Feature.class, "Feature", "FD");
 		feature.assignCategory("simple").assignAuthor("dev").assignDevice("all");
 		ExtentTest scenario = feature.createNode(Scenario.class, "Scenario", "scenario description");
+		scenario.assignCategory("simpleSC").assignAuthor("devSC").assignDevice("allSC");
 		scenario.createNode(Given.class, "Given step.").pass("");
 		scenario.createNode(When.class, "When step.").pass("");
 		scenario.createNode(Then.class, "Then step.").pass("");
 
 		ExtentTest scenarioOutline = feature.createNode(ScenarioOutline.class, "Scenario Outline");
+		scenarioOutline.assignCategory("simpleSO").assignAuthor("devSO").assignDevice("allSO");
 		ExtentTest scenarioSO = scenarioOutline.createNode(Scenario.class, "SO Scenario Outline",
 				"Scenario in a Scenario Outline");
+		scenarioSO.assignCategory("simpleSOSC").assignAuthor("devSOSC").assignDevice("allSOSC");
 		scenarioSO.createNode(Given.class, "Given SO step.").pass("");
 		scenarioSO.createNode(When.class, "When SO step.").pass("");
 		scenarioSO.createNode(Then.class, "Then SO step.").pass("");
