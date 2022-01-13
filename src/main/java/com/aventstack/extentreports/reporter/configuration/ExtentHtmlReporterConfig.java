@@ -30,9 +30,6 @@ public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 
 	@Builder.Default
 	private Boolean offlineMode = false;
-	@Accessors(fluent = true)
-	@Builder.Default
-	private Boolean thumbnailForBase64 = false;
 	@Builder.Default
 	private String resourceCDN = "github";
 	@Builder.Default
@@ -43,6 +40,14 @@ public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 	private Boolean enableTimeline = true;
 	@Builder.Default
 	private String disableToggleActionForPassedNode = "";
+	@Builder.Default
+	private Boolean enableCategoryView = true;
+	@Builder.Default
+	private Boolean enableAuthorView = true;
+	@Builder.Default
+	private Boolean enableExceptionView = true;
+	@Builder.Default
+	private Boolean enableTestRunnerLogsView = true;
 
 	/**
 	 * Creates the HTML report, saving all resources (css, js, fonts) in the same

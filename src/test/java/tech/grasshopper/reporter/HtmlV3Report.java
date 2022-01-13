@@ -1,5 +1,7 @@
 package tech.grasshopper.reporter;
 
+import java.io.IOException;
+
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -8,15 +10,18 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class HtmlV3Report {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ExtentReports extent = new ExtentReports();
 		// extent.setAnalysisStrategy(AnalysisStrategy.SUITE);
 
 		ExtentHtmlReporter html = new ExtentHtmlReporter("reports/htmlV3.html");
+		html.loadXMLConfig("src/test/resources/config/html-config.xml");
+
 		extent.attachReporter(html);
-		html.config().setDocumentTitle("MOUNISH");
-		html.config().setReportName("GRASSHOPPER");
-		html.config().enableOfflineMode(true);
+
+		// html.config().setDocumentTitle("MOUNISH");
+		// html.config().setReportName("GRASSHOPPER");
+		// html.config().enableOfflineMode(true);
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 

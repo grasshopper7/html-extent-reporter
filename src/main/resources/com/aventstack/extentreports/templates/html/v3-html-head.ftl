@@ -9,9 +9,9 @@
         <link rel="stylesheet" href="html/material-icons.css">
         <link rel="stylesheet" href="html/v3html-style.css">
     <#else>
-        <link href='${config.protocol}://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
-        <link href="${config.protocol}://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href='${config.protocol}://${cdnURI}${csscommit}/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+        <link href='${config.protocol?lower_case}://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+        <link href="${config.protocol?lower_case}://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='${config.protocol?lower_case}://${cdnURI}${csscommit}/v3html/css/extent.css' type='text/css' rel='stylesheet' />
     </#if>
 	
 	<title>${ config.documentTitle }</title>

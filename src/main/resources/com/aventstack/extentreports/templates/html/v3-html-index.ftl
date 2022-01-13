@@ -111,7 +111,7 @@
 		 <#if offline==true>
 		  <script src='html/v3html-script.js' type='text/javascript'></script>
 		<#else>
-		  <script src='${config.protocol}://${cdnURI}${jscommit}/v3html/js/extent.js' type='text/javascript'></script>
+		  <script src='${config.protocol?lower_case}://${cdnURI}${jscommit}/v3html/js/extent.js' type='text/javascript'></script>
 		</#if>
 		
 		<#assign hide=(chartVisibleOnOpen==true)?then(false, true)>
