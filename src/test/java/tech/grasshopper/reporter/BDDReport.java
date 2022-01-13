@@ -28,10 +28,14 @@ public class BDDReport {
 		// extent.setMediaResolverPath(new String[] { "images" });
 
 		ExtentHtmlReporter html = new ExtentHtmlReporter("reports/htmlV3BDD.html");
+		html.loadXMLConfig("src/test/resources/config/html-config.xml");
 		extent.attachReporter(html);
-		html.config().setDocumentTitle("MOUNISH");
-		html.config().setReportName("GRASSHOPPER");
-		html.config().enableOfflineMode(true);
+
+		/*
+		 * html.config().setDocumentTitle("MOUNISH");
+		 * html.config().setReportName("GRASSHOPPER");
+		 * html.config().enableOfflineMode(true);
+		 */
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 

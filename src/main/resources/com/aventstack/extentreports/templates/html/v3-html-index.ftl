@@ -6,14 +6,14 @@
 
 <#assign 
 	testViewChartLocation='top'
-	chartVisibleOnOpen='true'
-	enableTimeline='true'
- 	disableToggleActionForPassedNode=''>
+	chartVisibleOnOpen=true
+	enableTimeline=true
+ 	disableToggleActionForPassedNode=false>
 
 <#if (config.testViewChartLocation)??><#assign testViewChartLocation=config.testViewChartLocation?lower_case></#if>
 <#if (config.chartVisibleOnOpen)??><#assign chartVisibleOnOpen=config.chartVisibleOnOpen></#if>
 <#if (config.enableTimeline)??><#assign enableTimeline=config.enableTimeline></#if>
-<#if (config.disableToggleActionForPassedNode)??><#assign disableToggleActionForPassedNode=config.disableToggleActionForPassedNode?lower_case></#if>
+<#if (config.disableToggleActionForPassedNode)??><#assign disableToggleActionForPassedNode=config.disableToggleActionForPassedNode></#if>
 
 <#-- <#assign klovUrl=config.containsConfig('klov-url')?then(config.getConfig('klov-url'), '')> -->
 

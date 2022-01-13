@@ -12,16 +12,19 @@ public class HtmlV3Report {
 
 	public static void main(String[] args) throws IOException {
 		ExtentReports extent = new ExtentReports();
-		// extent.setAnalysisStrategy(AnalysisStrategy.SUITE);
+		extent.setAnalysisStrategy(AnalysisStrategy.SUITE);
 
 		ExtentHtmlReporter html = new ExtentHtmlReporter("reports/htmlV3.html");
 		html.loadXMLConfig("src/test/resources/config/html-config.xml");
+		// html.loadJSONConfig("src/test/resources/config/html-config.json");
 
 		extent.attachReporter(html);
 
-		// html.config().setDocumentTitle("MOUNISH");
-		// html.config().setReportName("GRASSHOPPER");
-		// html.config().enableOfflineMode(true);
+		/*
+		 * html.config().setDocumentTitle("MOUNISH");
+		 * html.config().setReportName("GRASSHOPPER");
+		 * html.config().enableOfflineMode(false);
+		 */
 
 		extent.addTestRunnerOutput("Hello Runner Logs");
 

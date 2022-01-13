@@ -1,7 +1,7 @@
 <div class='test-time-info'>
 	<span class='label start-time'>${ test.startTime?datetime?string["${timeStampFormat}"] }</span>
 	<span class='label end-time'>${ test.endTime?datetime?string["${timeStampFormat}"] }</span>
-	<span class='label time-taken grey lighten-1 white-text'>${ test.timeTakenPretty() }</span>
+	<span class='label time-taken grey lighten-1 white-text'>${ ReportUtils.timeTakenPretty(test.timeTaken()) }</span>
 </div>
 <#if test.description?? && test.description?has_content>
 <div class='test-desc'>${ test.description} </div>
@@ -72,7 +72,7 @@
 			<div class='node-name'>${ node.name }</div>
 			<span class='node-time label start-time'>${ node.startTime?datetime?string["${timeStampFormat}"] }</span>
 			<span class='node-time label end-time'>${ node.endTime?datetime?string["${timeStampFormat}"] }</span>
-			<span class='node-duration label time-taken grey lighten-1 white-text'>${ node.timeTakenPretty() }</span>
+			<span class='node-duration label time-taken grey lighten-1 white-text'>${ ReportUtils.timeTakenPretty(node.timeTaken()) }</span>
 			<span class='test-status right ${ node.status?lower_case }'>${ node.status }</span>
 			<#if node.hasCategory()>
 			<div class='category-list'>
@@ -83,8 +83,8 @@
 			</#if>						
 		</div>
 		<#assign displayContent=true>
-		<#if node.getStatus()=='pass' && disableToggleActionForPassedNode=='true'>
-		<#assign displayContent=false>
+		<#if node.getStatus()== Status.PASS && disableToggleActionForPassedNode==true>
+			<#assign displayContent=false>
 		</#if>
 		<#if node.hasLog() && displayContent>
 		<div class='collapsible-body'>

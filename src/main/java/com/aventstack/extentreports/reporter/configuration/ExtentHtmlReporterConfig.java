@@ -39,7 +39,7 @@ public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 	@Builder.Default
 	private Boolean enableTimeline = true;
 	@Builder.Default
-	private String disableToggleActionForPassedNode = "";
+	private Boolean disableToggleActionForPassedNode = false;
 	@Builder.Default
 	private Boolean enableCategoryView = true;
 	@Builder.Default

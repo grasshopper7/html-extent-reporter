@@ -23,14 +23,21 @@
 		<!-- timestamp format -->
 		<timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
 
+		<!-- view report without internet -->
+		<offlineMode>true</offlineMode>
+
+		<!-- settings to change component location -->
+		<testViewChartLocation>top</testViewChartLocation>
+		<chartVisibleOnOpen>true</chartVisibleOnOpen>
+		<enableTimeline>true</enableTimeline>
+		<disableToggleActionForPassedNode>true
+		</disableToggleActionForPassedNode>
+
 		<!-- settings to enable/disable views -->
 		<enableCategoryView>true</enableCategoryView>
 		<enableAuthorView>true</enableAuthorView>
 		<enableExceptionView>true</enableExceptionView>
 		<enableTestRunnerLogsView>true</enableTestRunnerLogsView>
-		
-		<!-- view report without internet -->
-		<offlineMode>false</offlineMode>
 
 		<!-- custom javascript -->
 		<scripts>

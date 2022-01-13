@@ -5,8 +5,15 @@
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 <#if test.description?? && test.description?has_content>
-<div class='test-desc'>${test.description}</div>
+	<div class='test-desc'>${test.description}</div>
 </#if>
+<#if test.hasCategory()>
+	<div class='category-list'>
+		<#list test.categorySet as category>
+			<span class='category label'>${ category.name }</span>
+		</#list>
+	</div>
+	</#if>
 <#list test.children as node>
 <div class='${ReportUtils.getBehaviorDrivenTypeName(node)?lower_case} node' test-id='${node.getId()}' status='${node.status}'>
 	<#if node.hasCategory()>
@@ -16,7 +23,7 @@
 		</#list>
 	</div>
 	</#if>
-	<span class='duration right label'>${node.timeTakenPretty()}</span>
+	<span class='duration right label'>${ReportUtils.timeTakenPretty(node.timeTaken())}</span>
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status ${node.status?lower_case}' title='${node.status}'><i class='material-icons'>${MaterialIcon.getIcon(node.status)}</i></span> ${ReportUtils.getBehaviorDrivenTypeName(node)}: ${node.name}</div>
 		<#-- Not Needed Check -->
