@@ -1,6 +1,6 @@
 <nav>
 	<div class="nav-wrapper">
-        <#if offline=='true'><a href="#" class="brand-logo black"><img src="html/logo.png"></a>
+        <#if offline==true><a href="#" class="brand-logo black"><img src="html/logo.png"></a>
         <#else><a href="#!" class="brand-logo black"><img src="https://${cdnURI}${iconcommit}/commons/img/logo.png"></a>
         </#if>
 		<!-- slideout menu -->

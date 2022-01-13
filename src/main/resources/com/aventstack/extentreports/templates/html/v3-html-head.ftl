@@ -5,7 +5,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta id="timeStampFormat" name="timeStampFormat" content='${timeStampFormat}'/>
 	
-	<#if offline=="true">
+	<#if offline==true>
         <link rel="stylesheet" href="html/material-icons.css">
         <link rel="stylesheet" href="html/v3html-style.css">
     <#else>

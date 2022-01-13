@@ -71,7 +71,7 @@
         </div>
         </#if>
     </div>
-    <#if enableTimeline=='true'>
+    <#if enableTimeline==true>
     <div id="timeline-chart" class="row nm-v nm-h">
         <div class="col s12 m12 l12 np-h">
             <div class="card-panel">

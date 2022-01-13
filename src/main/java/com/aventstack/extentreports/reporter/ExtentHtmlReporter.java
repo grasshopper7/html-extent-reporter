@@ -13,11 +13,9 @@ import com.aventstack.extentreports.observer.ReportObserver;
 import com.aventstack.extentreports.observer.entity.ReportEntity;
 import com.aventstack.extentreports.reporter.configuration.EntityFilters;
 import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterConfig;
-import com.aventstack.extentreports.reporter.configuration.ViewConfigurer;
-import com.aventstack.extentreports.reporter.configuration.ViewsConfigurable;
-import com.aventstack.extentreports.viewdefs.ReportUtils;
 import com.aventstack.extentreports.viewdefs.Icon;
 import com.aventstack.extentreports.viewdefs.MaterialIcon;
+import com.aventstack.extentreports.viewdefs.ReportUtils;
 import com.aventstack.extentreports.viewdefs.TWBSColor;
 
 import freemarker.template.Template;
@@ -29,7 +27,7 @@ import lombok.Getter;
 
 @Getter
 public class ExtentHtmlReporter extends AbstractFileReporter implements ReportObserver<ReportEntity>,
-		ReporterConfigurable, ViewsConfigurable<ExtentHtmlReporter>, ReporterFilterable<ExtentHtmlReporter> {
+		ReporterConfigurable/* , ViewsConfigurable<ExtentHtmlReporter> */, ReporterFilterable<ExtentHtmlReporter> {
 	private static final Logger logger = Logger.getLogger(ExtentHtmlReporter.class.getName());
 	private static final String TEMPLATE_LOCATION = "templates/";
 	private static final String ENCODING = "UTF-8";
@@ -38,8 +36,11 @@ public class ExtentHtmlReporter extends AbstractFileReporter implements ReportOb
 	private static final String FILE_NAME = "Index.html";
 
 	private final AtomicBoolean executed = new AtomicBoolean();
-	@Getter(value = AccessLevel.NONE)
-	private final ViewConfigurer<ExtentHtmlReporter> viewConfigurer = new ViewConfigurer<>(this);
+	/*
+	 * @Getter(value = AccessLevel.NONE) private final
+	 * ViewConfigurer<ExtentHtmlReporter> viewConfigurer = new
+	 * ViewConfigurer<>(this);
+	 */
 	@Getter(value = AccessLevel.NONE)
 	private final EntityFilters<ExtentHtmlReporter> filter = new EntityFilters<>(this);
 
@@ -60,10 +61,10 @@ public class ExtentHtmlReporter extends AbstractFileReporter implements ReportOb
 		return filter;
 	}
 
-	@Override
-	public ViewConfigurer<ExtentHtmlReporter> viewConfigurer() {
-		return viewConfigurer;
-	}
+	/*
+	 * @Override public ViewConfigurer<ExtentHtmlReporter> viewConfigurer() { return
+	 * viewConfigurer; }
+	 */
 
 	public ExtentHtmlReporterConfig config() {
 		return conf;

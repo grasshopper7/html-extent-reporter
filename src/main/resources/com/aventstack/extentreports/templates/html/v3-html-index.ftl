@@ -4,18 +4,18 @@
 <#assign childCount=report.stats.sumStat(report.stats.child)>
 <#assign grandChildCount=report.stats.sumStat(report.stats.grandchild)>
 
-<#assign testViewChartLocation='top'>
-<#assign chartVisibleOnOpen='true'>
-<#assign enableTimeline='true'>
-<#assign offline='true'>
+<#assign 
+	testViewChartLocation='top'
+	chartVisibleOnOpen='true'
+	enableTimeline='true'
+ 	disableToggleActionForPassedNode=''>
 
-<#--<#assign theme=config.containsConfig('theme')?then(config.getConfig('theme')?lower_case, 'standard')>
-<#assign testViewChartLocation=config.containsConfig('chartLocation')?then(config.getConfig('chartLocation')?lower_case, 'top')>
-<#assign chartVisibleOnOpen=config.containsConfig('chartVisibilityOnOpen')?then(config.getConfig('chartVisibilityOnOpen'), 'false')>
-<#assign klovUrl=config.containsConfig('klov-url')?then(config.getConfig('klov-url'), '')>
-<#assign disableToggleActionForPassedNode=config.containsConfig('disableToggleActionForPassedNode')?then(config.getConfig('disableToggleActionForPassedNode'), '')>
-<#assign enableTimeline=config.containsConfig('enableTimeline')?then(config.getConfig('enableTimeline'), 'true')>
-<#assign timeStampFormat = config.getConfig('timeStampFormat')>-->
+<#if (config.testViewChartLocation)??><#assign testViewChartLocation=config.testViewChartLocation?lower_case></#if>
+<#if (config.chartVisibleOnOpen)??><#assign chartVisibleOnOpen=config.chartVisibleOnOpen></#if>
+<#if (config.enableTimeline)??><#assign enableTimeline=config.enableTimeline></#if>
+<#if (config.disableToggleActionForPassedNode)??><#assign disableToggleActionForPassedNode=config.disableToggleActionForPassedNode?lower_case></#if>
+
+<#-- <#assign klovUrl=config.containsConfig('klov-url')?then(config.getConfig('klov-url'), '')> -->
 
 <#assign 
   resourceCDN=config.resourceCDN
@@ -95,7 +95,7 @@
 			};
 			</script>
 		
-		<#if enableTimeline=='true'>
+		<#if enableTimeline==true>
 		<script>
 			<#macro listTestNameDuration testList>
 			   <#if report.testList??>
@@ -108,13 +108,13 @@
 		</script>
 		</#if>
 		
-		 <#if offline=="true">
+		 <#if offline==true>
 		  <script src='html/v3html-script.js' type='text/javascript'></script>
 		<#else>
 		  <script src='${config.protocol}://${cdnURI}${jscommit}/v3html/js/extent.js' type='text/javascript'></script>
 		</#if>
 		
-		<#assign hide=(chartVisibleOnOpen=='true')?then(false, true)>
+		<#assign hide=(chartVisibleOnOpen==true)?then(false, true)>
 		<#if hide>
 		<script type='text/javascript'>
 			$(document).ready(function() {

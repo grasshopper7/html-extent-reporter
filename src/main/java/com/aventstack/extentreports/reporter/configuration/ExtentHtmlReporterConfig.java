@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 	private static final String REPORTER_NAME = "html";
 	private static final String SEP = "/";
-	private static final String COMMONS = "commons" + SEP;
+	// private static final String COMMONS = "commons" + SEP;
 	private static final String CSS = "css" + SEP;
 	private static final String JS = "js" + SEP;
 	private static final String ICONS = "icons" + SEP;
@@ -35,6 +35,14 @@ public class ExtentHtmlReporterConfig extends InteractiveReporterConfig {
 	private Boolean thumbnailForBase64 = false;
 	@Builder.Default
 	private String resourceCDN = "github";
+	@Builder.Default
+	private String testViewChartLocation = "top";
+	@Builder.Default
+	private Boolean chartVisibleOnOpen = true;
+	@Builder.Default
+	private Boolean enableTimeline = true;
+	@Builder.Default
+	private String disableToggleActionForPassedNode = "";
 
 	/**
 	 * Creates the HTML report, saving all resources (css, js, fonts) in the same

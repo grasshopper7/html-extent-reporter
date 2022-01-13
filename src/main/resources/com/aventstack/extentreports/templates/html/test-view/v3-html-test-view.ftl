@@ -49,7 +49,7 @@
 			<!-- clear filters -->
 			<!-- enable dashboard -->
 			<div id='toggle-test-view-charts' class='chip transparent'>
-				<#assign btnEnabledClass=(chartVisibleOnOpen=='true')?then('pink-text','')>
+				<#assign btnEnabledClass=(chartVisibleOnOpen==true)?then('pink-text','')>
 				<a class='${ btnEnabledClass }' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
 				<i class='material-icons'>track_changes</i> Dashboard
 				</a>
