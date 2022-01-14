@@ -24,7 +24,7 @@
 		<timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
 
 		<!-- view report without internet -->
-		<offlineMode>true</offlineMode>
+		<offlineMode>false</offlineMode>
 
 		<!-- settings to change component location -->
 		<testViewChartLocation>top</testViewChartLocation>
@@ -40,20 +40,10 @@
 		<enableTestRunnerLogsView>true</enableTestRunnerLogsView>
 
 		<!-- custom javascript -->
-		<scripts>
-			<![CDATA[
-				<!-- $(document).ready(function() {
-				    $('.test').click(function() { console.log('test'); });
-				});-->
-			]]>
-		</scripts>
+		<js></js>
 
 		<!-- custom styles -->
-		<styles>
-			<![CDATA[
-			 <!-- .test.active { border: 1px solid #ccc; }-->
-			]]>
-		</styles>
+		<css></css>
 
 	</configuration>
 </extentreports>
