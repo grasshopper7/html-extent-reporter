@@ -93,7 +93,7 @@
 			<div class='node-desc'>${ node.description}</div>
 			</#if>
 			<#if node.hasAuthor()>
-			<div class='author-list right'>
+			<div class='author-list'>
 				<#list node.authorSet as author>
 				<span class='author label white-text'>${ author.name }</span>
 				</#list>

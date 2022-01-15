@@ -40,8 +40,9 @@
 	<div class="bdd-test">
 		<div class="scenario-name"><span class='status ${node.status?lower_case}' title='${node.status}'><i class='material-icons'>${MaterialIcon.getIcon(node.status)}</i></span> ${ReportUtils.getBehaviorDrivenTypeName(node)}: ${node.name}</div>
 	</div>
+	
 	<#if node.description?? && node.description?has_content>
-		<div class='scenario-desc'>${node.description}</div>
+		<div class='node-desc'>${node.description}</div>
 	</#if>
 	
 	<#if node.hasCategory()>
