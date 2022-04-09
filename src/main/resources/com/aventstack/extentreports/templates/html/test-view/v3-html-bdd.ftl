@@ -34,7 +34,7 @@
 </#if>
 
 <#list test.children as node>
-<div class='${ReportUtils.getBehaviorDrivenTypeName(node)?lower_case} node' test-id='${node.getId()}' status='${node.status}'>
+<div class='${ReportUtils.getBehaviorDrivenTypeName(node)?lower_case} node' test-id='${node.getId()}' status='${node.status?lower_case}'>
 
 	<span class='duration right label'>${ReportUtils.timeTakenPretty(node.timeTaken())}</span>
 	<div class="bdd-test">
